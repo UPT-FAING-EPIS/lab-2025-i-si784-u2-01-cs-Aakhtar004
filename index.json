@@ -1,0 +1,12 @@
+{
+  "articles/invalidinputexception.html": {
+    "href": "articles/invalidinputexception.html",
+    "title": "InvalidInputException | Documentación de MyMath",
+    "summary": "InvalidInputException Math.Lib.InvalidInputException extiende de Exception y se usa cuando el valor de entrada no es válido. Constructores InvalidInputException(string message) Parámetro: message: Texto descriptivo del error. Ejemplo try { var rooter = new Rooter(); rooter.SquareRoot(-1); } catch (InvalidInputException ex) { Console.WriteLine(ex.Message); }"
+  },
+  "articles/rooter.html": {
+    "href": "articles/rooter.html",
+    "title": "Rooter | Documentación de MyMath",
+    "summary": "Rooter Math.Lib.Rooter es la clase que implementa el cálculo de la raíz cuadrada con el método de Newton. Métodos SquareRoot(double input) Descripción: Calcula la raíz cuadrada de input validando que sea positivo. Excepciones: ArgumentOutOfRangeException si input <= 0 con mensaje \"El valor ingresado es invalido, solo se puede ingresar números positivos\". Ejemplo de uso var rooter = new Rooter(); double result = rooter.SquareRoot(25); // 5.0"
+  }
+}
