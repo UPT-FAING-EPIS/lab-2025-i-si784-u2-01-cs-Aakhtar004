@@ -1,0 +1,39 @@
+name: Publish Docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Install DocFX CLI
+        run: dotnet tool install -g docfx
+
+      - name: Generate API metadata
+        run: |
+          cd docs
+          ~/.dotnet/tools/docfx metadata
+
+      - name: Build documentation site
+        run: |
+          cd docs
+          ~/.dotnet/tools/docfx build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_site
+          # opcional: user_name, user_email, cname, etc.
