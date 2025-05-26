@@ -1,5 +1,4 @@
 name: Publish Coverage Report
-
 on:
   push:
     branches:
