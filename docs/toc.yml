@@ -1,12 +1,13 @@
-- name: Docs
-  href: docs/
-- name: API
-  href: api/
-- name: Articles
+### YamlMime:TableOfContent
+items:
+- uid: Math.Lib
+  name: Math.Lib
+  type: Namespace
   items:
-    - name: Rooter
-      href: articles/rooter.md
-    - name: InvalidInputException
-      href: articles/invalidinputexception.md
-- name: API
-  href: api/index.yml
+  - uid: Math.Lib.InvalidInputException
+    name: InvalidInputException
+    type: Class
+  - uid: Math.Lib.Rooter
+    name: Rooter
+    type: Class
+memberLayout: SamePage

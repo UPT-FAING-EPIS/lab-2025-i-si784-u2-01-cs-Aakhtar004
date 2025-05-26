@@ -4,11 +4,10 @@
     {
       "src": [
         {
-          "files": [ "../Math.Lib/**.csproj" ],
-          "cwd": "."
+          "src": "../MyMath/Math.Lib",
+          "files": [ "*.csproj" ]
         }
       ],
-      "dest": "api",
       "properties": {
         "TargetFramework": "net9.0"
       }
@@ -18,9 +17,10 @@
     "content": [
       {
         "files": [
-          "api/**.yml",
+          "*.yml",
           "articles/**.md",
-          "toc.yml"
+          "toc.yml",
+          "index.md"
         ],
         "exclude": [
           "_site/**"

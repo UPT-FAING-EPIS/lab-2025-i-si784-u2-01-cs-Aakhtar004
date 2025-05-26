@@ -1,11 +1,14 @@
 ---
-_layout: landing
+uid: home
+title: Inicio
 ---
 
-# This is the **HOMEPAGE**.
+# Bienvenido a la documentación de MyMath
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+Esta documentación cubre:
 
-## Quick Start Notes:
+- API de `Math.Lib`  
+- Clases y excepciones  
+- Ejemplos de uso  
 
-1. Add images to the *images* folder if the file is referencing an image.
+> Utiliza el menú lateral para navegar entre **Articles** y **API**.

@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/Users/PC-FAMILY-AO/Documents/Proyectos/lab-2025-i-si784-u2-01-cs-Aakhtar004/MyMath/docs",
+  "source_base_path": "C:/Users/PC-FAMILY-AO/Documents/Proyectos/lab-2025-i-si784-u2-01-cs-Aakhtar004/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -11,11 +11,73 @@
       }
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "Math.Lib.InvalidInputException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Math.Lib.InvalidInputException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Math.Lib.InvalidInputException",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Math.Lib.Rooter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Math.Lib.Rooter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Math.Lib.Rooter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "Math.Lib.yml",
+      "output": {
+        ".html": {
+          "relative_path": "Math.Lib.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Math.Lib",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/invalidinputexception.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/invalidinputexception.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "articles/rooter.md",
       "output": {
         ".html": {
           "relative_path": "articles/rooter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
         }
       },
       "version": ""

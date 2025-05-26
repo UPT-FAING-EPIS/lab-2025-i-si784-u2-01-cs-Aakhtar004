@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Rooter | Documentaci&#243;n de MyMath </title>
+      <title>InvalidInputException | Documentaci&#243;n de MyMath </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Rooter | Documentaci&#243;n de MyMath ">
+      <meta name="title" content="InvalidInputException | Documentaci&#243;n de MyMath ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-01-cs-Aakhtar004/blob/main/docs/articles/rooter.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-01-cs-Aakhtar004/blob/main/docs/articles/invalidinputexception.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -71,28 +71,34 @@
         </div>
 
         <article data-uid="">
-<h1 id="rooter">Rooter</h1>
+<h1 id="invalidinputexception">InvalidInputException</h1>
 
-<p><code>Math.Lib.Rooter</code> es la clase que implementa el cálculo de la raíz cuadrada con el método de Newton.</p>
-<h2 id="métodos">Métodos</h2>
-<h3 id="squarerootdouble-input"><code>SquareRoot(double input)</code></h3>
+<p><code>Math.Lib.InvalidInputException</code> extiende de <code>Exception</code> y se usa cuando el valor de entrada no es válido.</p>
+<h2 id="constructores">Constructores</h2>
+<h3 id="invalidinputexceptionstring-message"><code>InvalidInputException(string message)</code></h3>
 <ul>
-<li><strong>Descripción:</strong> Calcula la raíz cuadrada de <code>input</code> validando que sea positivo.</li>
-<li><strong>Excepciones:</strong>
+<li><strong>Parámetro:</strong>
 <ul>
-<li><code>ArgumentOutOfRangeException</code> si <code>input &lt;= 0</code> con mensaje <code>&quot;El valor ingresado es invalido, solo se puede ingresar números positivos&quot;</code>.</li>
+<li><code>message</code>: Texto descriptivo del error.</li>
 </ul>
 </li>
 </ul>
-<h2 id="ejemplo-de-uso">Ejemplo de uso</h2>
-<pre><code class="lang-csharp">var rooter = new Rooter();
-double result = rooter.SquareRoot(25); // 5.0
+<h2 id="ejemplo">Ejemplo</h2>
+<pre><code class="lang-csharp">try
+{
+    var rooter = new Rooter();
+    rooter.SquareRoot(-1);
+}
+catch (InvalidInputException ex)
+{
+    Console.WriteLine(ex.Message);
+}
 </code></pre>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-01-cs-Aakhtar004/blob/main/docs/articles/rooter.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-01-cs-Aakhtar004/blob/main/docs/articles/invalidinputexception.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

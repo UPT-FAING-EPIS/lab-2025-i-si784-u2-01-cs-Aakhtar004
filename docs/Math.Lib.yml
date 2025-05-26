@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Math.Lib
+  commentId: N:Math.Lib
+  id: Math.Lib
+  children:
+  - Math.Lib.InvalidInputException
+  - Math.Lib.Rooter
+  langs:
+  - csharp
+  - vb
+  name: Math.Lib
+  nameWithType: Math.Lib
+  fullName: Math.Lib
+  type: Namespace
+  assemblies:
+  - Math.Lib
+references:
+- uid: Math.Lib.InvalidInputException
+  commentId: T:Math.Lib.InvalidInputException
+  href: Math.Lib.InvalidInputException.html
+  name: InvalidInputException
+  nameWithType: InvalidInputException
+  fullName: Math.Lib.InvalidInputException
+- uid: Math.Lib.Rooter
+  commentId: T:Math.Lib.Rooter
+  href: Math.Lib.Rooter.html
+  name: Rooter
+  nameWithType: Rooter
+  fullName: Math.Lib.Rooter

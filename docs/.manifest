@@ -1,0 +1,7 @@
+{
+  "Math.Lib": "Math.Lib.yml",
+  "Math.Lib.InvalidInputException": "Math.Lib.InvalidInputException.yml",
+  "Math.Lib.InvalidInputException.#ctor(System.String)": "Math.Lib.InvalidInputException.yml",
+  "Math.Lib.Rooter": "Math.Lib.Rooter.yml",
+  "Math.Lib.Rooter.SquareRoot(System.Double)": "Math.Lib.Rooter.yml"
+}
