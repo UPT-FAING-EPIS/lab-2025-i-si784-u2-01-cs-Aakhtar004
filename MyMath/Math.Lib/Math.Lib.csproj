@@ -7,7 +7,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>Math.Lib</PackageId>
-    <Version>1.0.2022074261</Version>
+    <Version>2022.0742.61</Version>
     <Authors>Ahmed Akhtar</Authors>
     <Description>Librería de ejemplo para laboratorio</Description>
   </PropertyGroup>
