@@ -21,19 +21,11 @@ jobs:
       - name: Install DocFX CLI
         run: dotnet tool install -g docfx
 
-      - name: Generate API metadata
-        run: |
-          cd docs
-          ~/.dotnet/tools/docfx metadata
-
-      - name: Build documentation site
-        run: |
-          cd docs
-          ~/.dotnet/tools/docfx build
+      - name: Generate and build documentation
+        run: ~/.dotnet/tools/docfx docs/docfx.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/_site
-
