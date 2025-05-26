@@ -9,7 +9,7 @@
         }
       ],
       "properties": {
-        "TargetFramework": "net9.0"
+        "TargetFramework": "net8.0"
       }
     }
   ],

@@ -16,7 +16,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '9.0.x'
+          dotnet-version: '8.0.x'
 
       - name: Restore dependencies
         run: dotnet restore MyMath/MyMath.sln
@@ -24,11 +24,14 @@ jobs:
       - name: Build solution
         run: dotnet build MyMath/MyMath.sln --configuration Release --no-restore
 
+      - name: Install ReportGenerator
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
       - name: Run tests with coverage
         run: |
           dotnet test MyMath/MyMath.sln --configuration Release --no-build --collect:"XPlat Code Coverage"
           mkdir -p coverage
-          reportgenerator -reports:"MyMath/**/coverage.cobertura.xml" -targetdir:coverage -reporttypes:Html
+          ~/.dotnet/tools/reportgenerator -reports:"MyMath/**/coverage.cobertura.xml" -targetdir:coverage -reporttypes:Html
 
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
