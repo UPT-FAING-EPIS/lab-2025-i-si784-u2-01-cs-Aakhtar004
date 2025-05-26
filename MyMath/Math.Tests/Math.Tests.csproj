@@ -21,4 +21,26 @@
     <ProjectReference Include="..\Math.Lib\Math.Lib.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="RunSettings.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="RunSettings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat Code Coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
