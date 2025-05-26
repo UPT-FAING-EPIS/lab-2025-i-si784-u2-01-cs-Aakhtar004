@@ -1,4 +1,19 @@
 {
+  "Math.Lib.InvalidInputException.html": {
+    "href": "Math.Lib.InvalidInputException.html",
+    "title": "Class InvalidInputException | Documentación de MyMath",
+    "summary": "Class InvalidInputException Namespace Math.Lib Assembly Math.Lib.dll public class InvalidInputException : ArgumentException, ISerializable Inheritance object Exception SystemException ArgumentException InvalidInputException Implements ISerializable Inherited Members ArgumentException.ThrowIfNullOrEmpty(string, string) ArgumentException.ThrowIfNullOrWhiteSpace(string, string) ArgumentException.Message ArgumentException.ParamName Exception.GetBaseException() Exception.GetType() Exception.ToString() Exception.Data Exception.HelpLink Exception.HResult Exception.InnerException Exception.Source Exception.StackTrace Exception.TargetSite Exception.SerializeObjectState object.Equals(object) object.Equals(object, object) object.GetHashCode() object.MemberwiseClone() object.ReferenceEquals(object, object) Constructors InvalidInputException(string) public InvalidInputException(string message) Parameters message string"
+  },
+  "Math.Lib.Rooter.html": {
+    "href": "Math.Lib.Rooter.html",
+    "title": "Class Rooter | Documentación de MyMath",
+    "summary": "Class Rooter Namespace Math.Lib Assembly Math.Lib.dll public class Rooter Inheritance object Rooter Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Methods SquareRoot(double) public double SquareRoot(double input) Parameters input double Returns double"
+  },
+  "Math.Lib.html": {
+    "href": "Math.Lib.html",
+    "title": "Namespace Math.Lib | Documentación de MyMath",
+    "summary": "Namespace Math.Lib Classes InvalidInputException Rooter"
+  },
   "articles/invalidinputexception.html": {
     "href": "articles/invalidinputexception.html",
     "title": "InvalidInputException | Documentación de MyMath",
@@ -8,5 +23,10 @@
     "href": "articles/rooter.html",
     "title": "Rooter | Documentación de MyMath",
     "summary": "Rooter Math.Lib.Rooter es la clase que implementa el cálculo de la raíz cuadrada con el método de Newton. Métodos SquareRoot(double input) Descripción: Calcula la raíz cuadrada de input validando que sea positivo. Excepciones: ArgumentOutOfRangeException si input <= 0 con mensaje \"El valor ingresado es invalido, solo se puede ingresar números positivos\". Ejemplo de uso var rooter = new Rooter(); double result = rooter.SquareRoot(25); // 5.0"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "Inicio | Documentación de MyMath",
+    "summary": "Bienvenido a la documentación de MyMath Esta documentación cubre: API de Math.Lib Clases y excepciones Ejemplos de uso Utiliza el menú lateral para navegar entre Articles y API."
   }
 }
