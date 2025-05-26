@@ -21,14 +21,4 @@
     <ProjectReference Include="..\Math.Lib\Math.Lib.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="RunSettings.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="RunSettings.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
 </Project>
