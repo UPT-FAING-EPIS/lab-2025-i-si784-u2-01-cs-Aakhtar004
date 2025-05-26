@@ -27,7 +27,7 @@ jobs:
 
       - name: Pack NuGet
         run: |
-          dotnet pack MyMath/Math.Lib/Math.Lib.csproj --configuration Release --output nupkgs /p:PackageVersion=2022074261
+          dotnet pack MyMath/Math.Lib/Math.Lib.csproj --configuration Release --output nupkgs /p:PackageVersion=1.0.2022074261
 
       - name: Publish NuGet to GitHub Packages
         run: |
