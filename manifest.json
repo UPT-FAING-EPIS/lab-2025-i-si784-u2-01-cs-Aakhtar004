@@ -1,5 +1,5 @@
 {
-  "source_base_path": "/home/runner/work/lab-2025-i-si784-u2-01-cs-Aakhtar004/lab-2025-i-si784-u2-01-cs-Aakhtar004/docs",
+  "source_base_path": "/home/runner/work/lab-2025-i-si784-u2-01-cs-Aakhtar004/lab-2025-i-si784-u2-01-cs-Aakhtar004/MyMath",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -11,11 +11,31 @@
       }
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "Math.Lib.InvalidInputException.yml",
+      "type": "Conceptual",
+      "source_relative_path": "Cobertura/SummaryGithub.md",
       "output": {
         ".html": {
-          "relative_path": "Math.Lib.InvalidInputException.html"
+          "relative_path": "Cobertura/SummaryGithub.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "disenio.md",
+      "output": {
+        ".html": {
+          "relative_path": "disenio.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "docs/Math.Lib.InvalidInputException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/Math.Lib.InvalidInputException.html"
         }
       },
       "version": "",
@@ -26,10 +46,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "Math.Lib.Rooter.yml",
+      "source_relative_path": "docs/Math.Lib.Rooter.yml",
       "output": {
         ".html": {
-          "relative_path": "Math.Lib.Rooter.html"
+          "relative_path": "docs/Math.Lib.Rooter.html"
         }
       },
       "version": "",
@@ -40,10 +60,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "Math.Lib.yml",
+      "source_relative_path": "docs/Math.Lib.yml",
       "output": {
         ".html": {
-          "relative_path": "Math.Lib.html"
+          "relative_path": "docs/Math.Lib.html"
         }
       },
       "version": "",
@@ -53,21 +73,42 @@
       "Summary": null
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "articles/invalidinputexception.md",
+      "type": "ManagedReference",
+      "source_relative_path": "docs/Math.Tests.RooterTests.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/invalidinputexception.html"
+          "relative_path": "docs/Math.Tests.RooterTests.html"
         }
       },
-      "version": ""
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Math.Tests.RooterTests",
+      "Summary": null
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "articles/rooter.md",
+      "type": "ManagedReference",
+      "source_relative_path": "docs/Math.Tests.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/rooter.html"
+          "relative_path": "docs/Math.Tests.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Math.Tests",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
         }
       },
       "version": ""

@@ -1,32 +1,42 @@
 {
-  "Math.Lib.InvalidInputException.html": {
-    "href": "Math.Lib.InvalidInputException.html",
-    "title": "Class InvalidInputException | Documentación de MyMath",
+  "Cobertura/SummaryGithub.html": {
+    "href": "Cobertura/SummaryGithub.html",
+    "title": "Summary | MyMath App",
+    "summary": "Summary Summary Generated on: 06/21/2025 - 23:55:12 Coverage date: 06/21/2025 - 23:55:11 Parser: Cobertura Assemblies: 1 Classes: 2 Files: 2 Line coverage: 100% (14 of 14) Covered lines: 14 Uncovered lines: 0 Coverable lines: 14 Total lines: 34 Branch coverage: 100% (4 of 4) Covered branches: 4 Total branches: 4 Method coverage: Feature is only available for sponsors Coverage Math.Lib - 100% Name Line Branch Math.Lib 100% 100% Math.Lib.InvalidInputException 100% Math.Lib.Rooter 100% 100%"
+  },
+  "disenio.html": {
+    "href": "disenio.html",
+    "title": "| MyMath App",
+    "summary": "classDiagram class InvalidInputException InvalidInputException : +String Message InvalidInputException : +String ParamName InvalidInputException : +MethodBase TargetSite InvalidInputException : +IDictionary Data InvalidInputException : +Exception InnerException InvalidInputException : +String HelpLink InvalidInputException : +String Source InvalidInputException : +Int HResult InvalidInputException : +String StackTrace class Rooter Rooter : +SquareRoot() Double"
+  },
+  "docs/Math.Lib.InvalidInputException.html": {
+    "href": "docs/Math.Lib.InvalidInputException.html",
+    "title": "Class InvalidInputException | MyMath App",
     "summary": "Class InvalidInputException Namespace Math.Lib Assembly Math.Lib.dll public class InvalidInputException : ArgumentException, ISerializable Inheritance object Exception SystemException ArgumentException InvalidInputException Implements ISerializable Inherited Members ArgumentException.ThrowIfNullOrEmpty(string, string) ArgumentException.ThrowIfNullOrWhiteSpace(string, string) ArgumentException.Message ArgumentException.ParamName Exception.GetBaseException() Exception.GetType() Exception.ToString() Exception.Data Exception.HelpLink Exception.HResult Exception.InnerException Exception.Source Exception.StackTrace Exception.TargetSite Exception.SerializeObjectState object.Equals(object) object.Equals(object, object) object.GetHashCode() object.MemberwiseClone() object.ReferenceEquals(object, object) Constructors InvalidInputException(string) public InvalidInputException(string message) Parameters message string"
   },
-  "Math.Lib.Rooter.html": {
-    "href": "Math.Lib.Rooter.html",
-    "title": "Class Rooter | Documentación de MyMath",
+  "docs/Math.Lib.Rooter.html": {
+    "href": "docs/Math.Lib.Rooter.html",
+    "title": "Class Rooter | MyMath App",
     "summary": "Class Rooter Namespace Math.Lib Assembly Math.Lib.dll public class Rooter Inheritance object Rooter Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Methods SquareRoot(double) public double SquareRoot(double input) Parameters input double Returns double"
   },
-  "Math.Lib.html": {
-    "href": "Math.Lib.html",
-    "title": "Namespace Math.Lib | Documentación de MyMath",
+  "docs/Math.Lib.html": {
+    "href": "docs/Math.Lib.html",
+    "title": "Namespace Math.Lib | MyMath App",
     "summary": "Namespace Math.Lib Classes InvalidInputException Rooter"
   },
-  "articles/invalidinputexception.html": {
-    "href": "articles/invalidinputexception.html",
-    "title": "InvalidInputException | Documentación de MyMath",
-    "summary": "InvalidInputException Math.Lib.InvalidInputException extiende de Exception y se usa cuando el valor de entrada no es válido. Constructores InvalidInputException(string message) Parámetro: message: Texto descriptivo del error. Ejemplo try { var rooter = new Rooter(); rooter.SquareRoot(-1); } catch (InvalidInputException ex) { Console.WriteLine(ex.Message); }"
+  "docs/Math.Tests.RooterTests.html": {
+    "href": "docs/Math.Tests.RooterTests.html",
+    "title": "Class RooterTests | MyMath App",
+    "summary": "Class RooterTests Namespace Math.Tests Assembly Math.Tests.dll [TestClass] public class RooterTests Inheritance object RooterTests Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Methods BasicRooterTest() [TestMethod] public void BasicRooterTest() RooterTestNegativeInputWithMessage() [TestMethod] public void RooterTestNegativeInputWithMessage() RooterTestNegativeInputx() [TestMethod] public void RooterTestNegativeInputx() RooterThrowsInvalidInputExceptionWithCustomMessage() [TestMethod] public void RooterThrowsInvalidInputExceptionWithCustomMessage() RooterValueRange() [TestMethod] public void RooterValueRange()"
   },
-  "articles/rooter.html": {
-    "href": "articles/rooter.html",
-    "title": "Rooter | Documentación de MyMath",
-    "summary": "Rooter Math.Lib.Rooter es la clase que implementa el cálculo de la raíz cuadrada con el método de Newton. Métodos SquareRoot(double input) Descripción: Calcula la raíz cuadrada de input validando que sea positivo. Excepciones: ArgumentOutOfRangeException si input <= 0 con mensaje \"El valor ingresado es invalido, solo se puede ingresar números positivos\". Ejemplo de uso var rooter = new Rooter(); double result = rooter.SquareRoot(25); // 5.0"
+  "docs/Math.Tests.html": {
+    "href": "docs/Math.Tests.html",
+    "title": "Namespace Math.Tests | MyMath App",
+    "summary": "Namespace Math.Tests Classes RooterTests"
   },
   "index.html": {
     "href": "index.html",
-    "title": "Inicio | Documentación de MyMath",
-    "summary": "Bienvenido a la documentación de MyMath Esta documentación cubre: API de Math.Lib Clases y excepciones Ejemplos de uso Utiliza el menú lateral para navegar entre Articles y API."
+    "title": "This is the HOMEPAGE. | MyMath App",
+    "summary": "This is the HOMEPAGE. Pruebas HTML Diagrama de Clases Pruebas Markdown"
   }
 }
