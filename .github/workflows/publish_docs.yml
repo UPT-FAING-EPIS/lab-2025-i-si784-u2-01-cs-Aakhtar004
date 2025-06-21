@@ -1,31 +1,129 @@
-name: Publish Docs
-
-on:
-  push:
-    branches:
-      - main
-
+name: 2. Generar Documentacion con DocFx y Publicar 
+env:
+  DOTNET_VERSION: '8.0' # la versión de .NET
+  DOTNET_VERSION_TOOL: '6.0' # la versión de .NET para agregar compatibilidad con .NET 6
+on: push
 jobs:
-  build-and-deploy:
+  build-and-deploy-docs:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: MyMath
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Configurando la versión de NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    - name: Compatibilidad con .NET 6
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION_TOOL }}
+    - name: Actualizar DocFx y dll2mmd  
+      run: |
+        dotnet tool update -g docfx
+        dotnet tool update -g dll2mmd
 
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '8.0.x'
+    - name: Restore & Build project
+      run: |
+        dotnet restore Math.Lib/Math.Lib.csproj
+        dotnet build Math.Lib/Math.Lib.csproj --configuration Release
+    - name: Generar diagrama de clases con dll2mmd
+      run: |
+        dll2mmd -f Math.Lib/bin/Release/net8.0/Math.Lib.dll -o disenio.md
+    - name: Generate coverage Report
+      run: |
+        dotnet test --collect:"XPlat Code Coverage"
+        dotnet tool install -g dotnet-reportgenerator-globaltool
+        reportgenerator "-reports:./*/*/*/coverage.cobertura.xml" "-targetdir:Cobertura" -reporttypes:MarkdownSummaryGithub
+    - name: Inicializar DocFX
+      run: |
+          docfx init -y
+    - name: Limpiar el directorio docs
+      run: |
+          rm -rf docs/*
+    - name: Modificar archivo docfx.json
+      run: |
+        cat > docfx.json <<EOF
+        {
+          "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+          "metadata": [
+            {
+              "src": [
+                {
+                  "src": ".",
+                  "files": [
+                    "**/*.csproj"
+                  ]
+                }
+              ],
+              "dest": "docs"
+            }
+          ],
+          "build": {
+            "content": [
+              {
+                "files": [
+                  "**/*.{md,yml}"
+                ],
+                "exclude": [
+                  "_site/**",
+                  "Cobertura/index.html"
+                ]
+              }
+            ],
+            "resource": [
+              {
+                "files": [
+                  "images/**"
+                ]
+              }
+            ],
+            "output": "_site",
+            "template": [
+              "default",
+              "modern"
+            ],
+            "globalMetadata": {
+              "_appName": "MyMath.App",
+              "_appTitle": "MyMath App",
+              "_enableSearch": true,
+              "pdf": true
+            }
+          }
+        }
+        EOF
+    - name: VER JSON
+      run: cat docfx.json
+    - name: Modificar archivo toc.yml
+      run: |
+        cat > toc.yml <<EOF
+        - name: Docs
+          href: docs/
+        EOF
+    - name: Modificar archivo index.md
+      run: |
+        cat > index.md <<EOF
+        ---
+        _layout: landing
+        ---
 
-      - name: Install DocFX CLI
-        run: dotnet tool install -g docfx
+        # This is the **HOMEPAGE**.
 
-      - name: Generate and build documentation
-        run: ~/.dotnet/tools/docfx docs/docfx.json
+        ## [Pruebas HTML](Cobertura/index.html)
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_site
+        ## [Diagrama de Clases](disenio.md)
+
+        ## [Pruebas Markdown](Cobertura/SummaryGithub.md)
+        EOF
+    - name: Generar documentación
+      run: |
+        docfx metadata docfx.json
+        docfx build
+    - name: Publicar en GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: MyMath/_site
+        keep_files: true

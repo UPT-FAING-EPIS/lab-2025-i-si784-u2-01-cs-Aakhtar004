@@ -1,43 +1,36 @@
-name: Release NuGet
+name: 1. Release NuGet Package
+env:
+  DOTNET_VERSION: '8.0' # la versión de .NET
+on: push
 
-on:
-  workflow_dispatch:
-  push:
-    tags:
-      - 'v*'
 
 jobs:
-  build-pack-publish:
+  release:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup .NET SDK
+      - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
-
-      - name: Restore dependencies
-        run: dotnet restore MyMath/MyMath.sln
-
-      - name: Build solution
-        run: dotnet build MyMath/MyMath.sln --configuration Release --no-restore
-
-      - name: Pack NuGet
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+        
+      - name: Restore dependencies && Build solution
         run: |
-          dotnet pack MyMath/Math.Lib/Math.Lib.csproj --configuration Release --output nupkgs /p:PackageVersion=2022.0742.61
+          cd MyMath
+          dotnet restore
+          dotnet build --configuration Release
 
-      - name: Publish NuGet to GitHub Packages
-        run: |
-          dotnet nuget push nupkgs/*.nupkg --source "github" --api-key ${{ secrets.GITHUB_TOKEN }}
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Pack NuGet package
+        run: dotnet pack MyMath/Math.Lib/Math.Lib.csproj -c Release -p:PackageVersion=202.207.4261
+      - name: NuGet sources
+        run: dotnet nuget list source
+      - name: Push NuGet package to GitHub Packages
+        run: dotnet nuget push MyMath/Math.Lib/bin/Release/Math.Lib.Ahmed.Akhtar.202.207.4261.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/UPT-FAING-EPIS/index.json" --api-key ${{ secrets.PACKAGE_NUGET }}
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          files: nupkgs/*.nupkg
+          tag_name: v2022074261
+          name: Release v2022074261
+          files: "**/*.nupkg"
