@@ -1,10 +1,12 @@
-name: Actividad - 1 | Release NuGet Package
+name: 1. Release NuGet Package
 env:
   DOTNET_VERSION: '8.0'
   PACKAGE_VERSION: '2022.07.4261'
   STUDENT_CODE: '2022074261'
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
   workflow_dispatch:
