@@ -1,36 +1,109 @@
-name: 1. Release NuGet Package
+name: Actividad - 1 | Release NuGet Package
 env:
-  DOTNET_VERSION: '8.0' # la versión de .NET
-on: push
-
+  DOTNET_VERSION: '8.0'
+  PACKAGE_VERSION: '2022.07.4261'
+  STUDENT_CODE: '2022074261'
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
+          
+      - name: Configure NuGet source for GitHub Packages
+        run: |
+          dotnet nuget add source \
+            --username ${{ github.actor }} \
+            --password ${{ secrets.GITHUB_TOKEN }} \
+            --store-password-in-clear-text \
+            --name github \
+            "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
         
-      - name: Restore dependencies && Build solution
+      - name: Restore dependencies
         run: |
           cd MyMath
           dotnet restore
-          dotnet build --configuration Release
-
+          
+      - name: Build solution in Release mode
+        run: |
+          cd MyMath
+          dotnet build --configuration Release --no-restore
+          
+      - name: Run tests
+        run: |
+          cd MyMath
+          dotnet test --configuration Release --no-build --verbosity normal
+          
       - name: Pack NuGet package
-        run: dotnet pack MyMath/Math.Lib/Math.Lib.csproj -c Release -p:PackageVersion=202.207.4261
-      - name: NuGet sources
-        run: dotnet nuget list source
-      - name: Push NuGet package to GitHub Packages
-        run: dotnet nuget push MyMath/Math.Lib/bin/Release/Math.Lib.Ahmed.Akhtar.202.207.4261.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/UPT-FAING-EPIS/index.json" --api-key ${{ secrets.PACKAGE_NUGET }}
+        run: |
+          cd MyMath
+          dotnet pack Math.Lib/Math.Lib.csproj \
+            --configuration Release \
+            --no-build \
+            --output ./packages \
+            -p:PackageVersion=${{ env.PACKAGE_VERSION }} \
+            -p:PackageId="Math.Lib.Ahmed.Akhtar.${{ env.STUDENT_CODE }}" \
+            -p:Authors="Ahmed Hasan Akhtar Oviedo" \
+            -p:Description="Biblioteca matemática para cálculo de raíces cuadradas - Código: ${{ env.STUDENT_CODE }}" \
+            -p:RepositoryUrl="${{ github.server_url }}/${{ github.repository }}"
+            
+      - name: List generated packages
+        run: |
+          cd MyMath
+          ls -la packages/
+          
+      - name: Push NuGet package to GitHub Packages (CORREGIDO)
+        run: |
+          cd MyMath
+          dotnet nuget push "packages/*.nupkg" \
+            --source "github" \
+            --api-key ${{ secrets.GITHUB_TOKEN }} \
+            --skip-duplicate
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v2022074261
-          name: Release v2022074261
-          files: "**/*.nupkg"
+          tag_name: v${{ env.PACKAGE_VERSION }}
+          name: Release v${{ env.PACKAGE_VERSION }}
+          body: |
+            ## 🚀 Release v${{ env.PACKAGE_VERSION }}
+            
+            ### Changelog
+            - ✅ Biblioteca MyMath para cálculo de raíces cuadradas
+            - ✅ Algoritmo de Newton-Raphson implementado
+            - ✅ Validación de entrada para números positivos
+            - ✅ Pruebas unitarias completas con manejo de excepciones
+            - ✅ Mensaje de error personalizado: "El valor ingresado es inválido, solo se puede ingresar números positivos"
+            
+            ### Características Técnicas
+            - Framework: .NET 8.0
+            - Cobertura de código incluida
+            - Documentación generada con DocFx
+            
+            ### Autor
+            Ahmed Hasan Akhtar Oviedo - Código: ${{ env.STUDENT_CODE }}
+            
+            ### Archivos incluidos
+            - Paquete NuGet: `Math.Lib.Ahmed.Akhtar.${{ env.STUDENT_CODE }}.${{ env.PACKAGE_VERSION }}.nupkg`
+            
+          files: MyMath/packages/*.nupkg
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
